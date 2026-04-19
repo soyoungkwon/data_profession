@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jane Doe — Data All Arounder & Corporate Influencer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#185FA5;--blue-l:#378ADD;--blue-ll:#B5D4F4;--blue-lll:#E6F1FB;
+  --li:#0a66c2;--li-l:#378fe9;--li-ll:#cce0f5;--li-lll:#eef4fb;
+  --bg:#ffffff;--bg2:#f7f9fc;--bg3:#eef2f7;
+  --text:#1a1a2e;--muted:#5a6a7a;--border:rgba(0,0,0,0.09);
+  --sidebar-bg:#0e1a2d;--sidebar-text:#c9d8ea;--sidebar-muted:#607a96;--sidebar-border:rgba(255,255,255,0.07);
+}
+@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+body{font-family:'DM Sans',sans-serif;background:#e8edf3;display:flex;justify-content:center;padding:2rem;min-height:100vh;color:var(--text)}
+*{word-break:normal;overflow-wrap:break-word;min-width:0}
+.cv{width:920px;border-radius:20px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.15)}
+
+/* BANNER */
+.banner{height:150px;position:relative;overflow:hidden}
+.banner img{width:100%;height:100%;object-fit:cover}
+.banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,26,45,0) 20%,rgba(14,26,45,0.7))}
+
+/* PROFILE STRIP */
+.profile-strip{
+  background:var(--sidebar-bg);
+  padding:0 2rem 1.5rem;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+}
+.avatar-wrap{margin-top:-44px;position:relative;flex-shrink:0}
+.avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;border:3px solid var(--sidebar-bg)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.open-badge{
+  position:absolute;bottom:4px;right:-4px;
+  background:#0a66c2;color:#fff;font-size:9px;font-weight:600;
+  padding:2px 6px;border-radius:3px;letter-spacing:0.4px;white-space:nowrap;
+}
+.profile-info{flex:1;padding-top:0.5rem}
+.prof-name{font-family:'DM Sans',sans-serif;font-size:26px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:3px;letter-spacing:0.3px;white-space:nowrap}
+.prof-roles{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.role-pill{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500;white-space:nowrap}
+.pill-ds{background:rgba(55,138,221,0.2);color:#85B7EB;border:0.5px solid rgba(55,138,221,0.3)}
+.pill-li{background:rgba(10,102,194,0.25);color:#7ab8f0;border:0.5px solid rgba(10,102,194,0.35)}
+.prof-bio{font-size:12px;color:var(--sidebar-muted);white-space:nowrap;line-height:1.6;max-width:500px}
+.contact-row{display:flex;align-items:center;gap:16px;padding-top:0.75rem;flex-wrap:wrap}
+.contact-link{font-size:11px;color:var(--sidebar-muted);text-decoration:none;display:flex;align-items:center;gap:5px}
+.contact-link:hover{color:var(--sidebar-text)}
+.cdot{width:4px;height:4px;border-radius:50%;background:var(--blue-l);flex-shrink:0}
+
+/* STATS BAR */
+.stats-bar{
+  background:var(--li);
+  display:grid;grid-template-columns:repeat(6,1fr);
+}
+.stat{padding:0.9rem 0.75rem;text-align:center;border-right:0.5px solid rgba(255,255,255,0.1)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;color:#fff;line-height:1;margin-bottom:2px;white-space:nowrap}
+.stat-num span{color:#cce0f5;font-size:13px}
+.stat-label{font-size:9.5px;color:rgba(255,255,255,0.55);letter-spacing:0.3px}
+
+/* BODY */
+.body{display:grid;grid-template-columns:1fr 270px;background:var(--bg)}
+
+/* MAIN */
+.main{padding:1.75rem;border-right:0.5px solid var(--border)}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.sec-title{font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue);white-space:nowrap;font-family:'DM Sans',sans-serif}
+.sec-line{flex:1;height:0.5px;background:var(--border)}
+
+/* LinkedIn section */
+.li-strip{background:var(--li-lll);border-radius:12px;padding:1.25rem;margin-bottom:1.5rem;border:0.5px solid var(--li-ll)}
+.li-strip-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.85rem}
+.li-strip-title{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.li-icon-badge{
+  width:22px;height:22px;border-radius:4px;
+  background:var(--li);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;
+}
+.li-follow-btn{
+  font-size:11px;padding:5px 14px;border-radius:20px;
+  background:var(--li);color:#fff;text-decoration:none;font-weight:500;
+  border:none;
+}
+.li-follow-btn:hover{background:var(--li-l)}
+.li-stats{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap}
+.li-stat{font-size:11px;color:var(--muted);white-space:nowrap}
+.li-stat strong{color:var(--text);font-weight:500}
+
+/* Post grid */
+.posts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.post-card{
+  text-decoration:none;color:inherit;display:block;
+  border-radius:8px;overflow:hidden;
+  border:0.5px solid var(--border);background:#fff;
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.post-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(10,102,194,0.12)}
+.post-thumb{position:relative;padding-top:56.25%;overflow:hidden;background:var(--bg2)}
+.post-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.post-overlay{
+  position:absolute;inset:0;background:rgba(10,102,194,0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.15s;
+}
+.post-card:hover .post-overlay{background:rgba(10,102,194,0.08)}
+.post-info{padding:8px 9px 10px}
+.post-title{font-size:10.5px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:4px;word-break:normal;overflow-wrap:anywhere}
+.post-meta{font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.post-reactions{color:var(--li);font-size:9.5px}
+
+/* DS Experience */
+.entry{padding-left:14px;border-left:2px solid var(--blue-ll);margin-bottom:1.2rem}
+.entry-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}
+.entry-sub{font-size:12px;color:var(--blue);margin:2px 0 3px}
+.entry-date{font-size:11px;color:var(--muted);margin-bottom:5px}
+.entry-desc{font-size:12px;color:var(--muted);line-height:1.65}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.tag{font-size:10px;padding:2px 9px;border-radius:20px;background:var(--blue-lll);color:var(--blue);white-space:nowrap}
+
+/* SIDEBAR */
+.sidebar{background:var(--sidebar-bg);padding:1.75rem 1.5rem}
+.s-label{font-size:9.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--sidebar-muted);border-bottom:0.5px solid var(--sidebar-border);padding-bottom:5px;margin-bottom:0.85rem;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.s-gap{margin-bottom:1.5rem}
+
+/* Skills */
+.skill-row{margin-bottom:10px}
+.skill-top{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.skill-name-l{color:var(--sidebar-text);white-space:nowrap}
+.skill-pct{color:var(--sidebar-muted)}
+.skill-track{height:3px;background:rgba(255,255,255,0.07);border-radius:2px}
+.skill-fill-ds{height:3px;background:var(--blue-l);border-radius:2px}
+.skill-fill-li{height:3px;background:#378fe9;border-radius:2px}
+
+/* Platforms */
+.plat-card{display:flex;align-items:center;white-space:nowrap;gap:9px;background:rgba(255,255,255,0.04);border:0.5px solid var(--sidebar-border);border-radius:8px;padding:9px 11px;margin-bottom:7px;text-decoration:none}
+.plat-card:hover{background:rgba(255,255,255,0.07)}
+.plat-icon{width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.plat-name{font-size:12px;font-weight:500;color:var(--sidebar-text);white-space:nowrap}
+.plat-handle{font-size:10px;color:var(--sidebar-muted);margin-top:1px}
+.plat-num{font-size:11px;color:var(--sidebar-muted);margin-left:auto}
+
+/* Education */
+.edu-item{margin-bottom:13px}
+.edu-deg{font-size:12px;font-weight:500;color:var(--sidebar-text);line-height:1.4}
+.edu-school{font-size:11px;color:var(--sidebar-muted);margin:2px 0 1px}
+.edu-year{font-size:10px;color:#3a5a7a}
+
+/* Certs */
+.cert-item{background:rgba(255,255,255,0.04);border:0.5px solid var(--sidebar-border);border-radius:7px;padding:9px 11px;margin-bottom:7px}
+.cert-name{font-size:11px;font-weight:500;color:var(--sidebar-text);line-height:1.4}
+.cert-meta{font-size:10px;color:var(--sidebar-muted);margin-top:2px}
+
+.sec-gap{margin-bottom:1.5rem}
+</style>
+</head>
+<body>
+<div class="cv">
+
+  <!-- BANNER -->
+  <div class="banner">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCADIA4QDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD4nooor1jhCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKnWxvXQOlnOykZBEZIIppN7CbS3IKKsf2ff/wDPlc/9+2/wqvQ4tbgmnsFFFFIYUUUUAFFFFABRRRQAUUUUAFFFXrLS7m7uY0aKWKNxnzTGSAMZFVGLk7IUpKKuyjVyLStRmcqlnKDjPzrtH5nFdNY6NbWlu0cyRXLFt294hkDA45zWlXfTwF1ebOSeLt8KORXw5qJg8w+UrYJ8stz/AIfrUX9har/z6/8Aj6/412dFbPAU/My+tzPPZI3imeKQYdCVYehFNr0KSOOWMxyoroeqsMg1k33h+G7uFkhkS2ULt2JEME5PPBFc9TASWsXc2hi4v4tDk6Kt3Wm3tnCJbmHYhO0HcDz+B9qqVwyi4uzR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" alt="banner">
+    <div class="banner-overlay"></div>
+  </div>
+
+  <!-- PROFILE STRIP -->
+  <div class="profile-strip">
+    <div style="display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap">
+      <div class="avatar-wrap">
+        <div class="avatar"><img src="https://media.licdn.com/dms/image/v2/C4D03AQG6I1fe1LOZ7g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1596090691545?e=1778112000&v=beta&t=wUlTwyvW06tKZb991GKbL78Qpp7hbsOrDp7tFWAwNnM" alt="Jane Doe"></div>
+        <div class="open-badge">#OpenToWork</div>
+      </div>
+      <div class="profile-info">
+        <div class="prof-name">Soyoung Kwon</div>
+        <div class="prof-roles">
+          <span class="role-pill pill-ds">Data All Arounder</span>
+          <span style="color:#3a5a7a;font-size:12px">+</span>
+          <span class="role-pill pill-li">LinkedIn Corporate Influencer</span>
+        </div>
+        <div class="prof-bio">5+ years in Data Scientist & Analytic Engineer · 1,6k LinkedIn followers · 🇰🇷 Korea --> 🇩🇪 Germany --> 🇺🇸 US, now Berlin based.<br> I build dbt models, build models and visualize data and share my work in community online</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <a class="contact-link" href="/cdn-cgi/l/email-protection#d5bfb4bbb095bfb4bbb0b1bab0fbb6bab8"><div class="cdot"></div><span class="__cf_email__" data-cfemail="dcb6bdb2b99cb6bdb2b9b8b3b9f2bfb3b1">[brainholic@gmail.com]</span></a>
+      <span class="contact-link"><div class="cdot"></div>+49 17659871118</span>     
+      <a class="contact-link" href="https://www.linkedin.com/in/soyoung-kwon-9657226a/" target="_blank"><div class="cdot"></div>linkedin.com/in/soyoung-kwon-9657226a/</a>
+      <a class="contact-link" href="github.com/soyoungkwon" target="_blank"><div class="cdot"></div>github.com/soyoungkwon</a>
+      <span class="contact-link"><div class="cdot"></div>Berlin, Germany</span>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">5<span>yr</span></div><div class="stat-label">Data Experience</div></div>
+    <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label">Data Projects</div></div>
+    <div class="stat"><div class="stat-num">1.6<span>K</span></div><div class="stat-label">LI Followers</div></div>
+    <div class="stat"><div class="stat-num">70<span>K</span></div><div class="stat-label">Impressions</div></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- LinkedIn section -->
+      <div class="sec-gap">
+        <div class="li-strip">
+          <div class="li-strip-head">
+            <div class="li-strip-title">
+              <div class="li-icon-badge">in</div>
+              LinkedIn Corporate Influencer, Youtuber &nbsp;—&nbsp; Side Career
+            </div>
+            <a class="li-follow-btn" href="https://www.linkedin.com/in/soyoung-kwon-9657226a/" target="_blank">+ Follow</a>
+          </div>
+          <div class="li-stats">
+            <div class="li-stat"><strong>1,6K</strong> followers</div>
+            <div class="li-stat"><strong>30+</strong> posts</div>
+            <div class="li-stat"><strong>70K</strong> impressions</div>
+            <div class="li-stat"><strong>Corporate Influencer</strong> in TeamViewer</div>
+            <div class="li-stat">Niche: <strong>ML · Career · DS Tips</strong></div>
+          </div>
+          <div class="posts-grid">
+            <a class="post-card" href="https://www.linkedin.com/posts/soyoung-kwon-9657226a_teamviewerlife-remote-activity-7125902335309930497-50Mx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA6zaN0BrWGhtYKhWiidwoKU7I4OIpxclkg" target="_blank">
+              <div class="post-thumb"><img src="https://media.licdn.com/dms/image/v2/D4E22AQGPE3-IFlVycQ/feedshare-shrink_800/feedshare-shrink_800/0/1698945947155?e=1777507200&v=beta&t=-PSBBsAdmxC8rmHqNvHE7r922cv4CNshubjL44h4HYI" alt="post"><div class="post-overlay"></div></div>             
+              <div class="post-info">
+                <div class="post-title">Corporate Influence at TeamViewer</div>
+                <div class="post-meta"><span class="post-reactions">&#10084;</span> 23k impressions & 182 reactions</div>
+              </div>
+            </a>
+            <a class="post-card" href="https://www.youtube.com/watch?v=3gmS3VSPBw0" target="_blank">
+              <div class="post-thumb"><img src="https://img.youtube.com/vi/3gmS3VSPBw0/maxresdefault.jpg" alt="post"><div class="post-overlay"></div></div>
+              <div class="post-info">
+                <div class="post-title">Create Chatbot Using Python</div>
+                <div class="post-meta"><span class="post-reactions">&#10084;</span> qdrant (vector space, AI)</div>
+              </div>
+            </a>
+            <a class="post-card" href="https://www.linkedin.com/posts/soyoung-kwon-9657226a_jobhunting-datascience-dataanalytics-activity-6790579603028111360-4SwK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA6zaN0BrWGhtYKhWiidwoKU7I4OIpxclkg" target="_blank">
+              <div class="post-thumb"><img src="https://img.youtube.com/vi/12QmmEWQ1NY/hqdefault.jpg" alt="post"><div class="post-overlay"></div></div>
+
+              <div class="post-info">
+                <div class="post-title">Hunt me: a data scientist got laid off</div>
+                <div class="post-meta"><span class="post-reactions">&#10084;</span> 30k impressions & 400 reactions</div>
+              </div>
+            </a>
+            <a class="post-card" href="https://www.youtube.com/shorts/t_QlXpmaHmw" target="_blank">
+              <div class="post-thumb"><img src="https://img.youtube.com/vi/t_QlXpmaHmw/maxresdefault.jpg" alt="post"><div class="post-overlay"></div></div>
+              <div class="post-info">
+                <div class="post-title">Data Scientist vs Data Engineer...</div>
+                <div class="post-meta"><span class="post-reactions">&#10084;</span> 1 min description of Data job </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DS Experience -->
+      <div class="sec-gap">
+        <div class="sec-head"><div class="sec-title">Data Experience</div><div class="sec-line"></div></div>
+
+        <div class="entry">
+          <div class="entry-title">Analytic Engineer/AI Advocate (Data Science Team)</div>
+          <div class="entry-sub">TeamViewer GmbH · Berlin</div>
+          <div class="entry-date">2022 July– Present (2024 May - 2025 April parental leave) </div>
+          <div class="entry-desc">Creating main KPIs in newsletter for the team. <br>
+            Posting regularly about life in TeamViewer, create/publish tech contents. <br>
+            Build dashboard of sales opportunities: using Tableau, SQL, DBT model, Python. <br>
+            Data Engineering: changing airflow DAG to update the team dbt model. <br>
+            Organized multiple social events with strong leader skills</div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">DBT</span><span class="tag">AWS</span><span class="tag">Docker</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Senior Consultant</div>
+          <div class="entry-sub">EY · Berlin</div>
+          <div class="entry-date">2021 Nov– 2022 May</div>
+          <div class="entry-desc">Build automatization of financial dashboard using power BI, SQL and python. <br>
+            Used Postman for web API control, Pyspark to retrieve macroeconomic data</div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">AWS</span><span class="tag">SQL</span></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Data Scientist</div>
+          <div class="entry-sub">OLX Autos (Startup acquision of FCG) · Berlin</div>
+          <div class="entry-date">2020 Jan– 2021 June</div>
+          <div class="entry-desc">Price prediction of the used car using machine learning. <br>
+            Lead scoring preduction using machine learning. <br>
+            Job hunting post got virale in Linkedin.</div>
+          <div class="tags"><span class="tag">Machine Learning</span><span class="tag">SQL</span><span class="tag">GCP</span><span class="tag">Power BI</span></div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="sec-gap">
+        <div class="sec-head"><div class="sec-title">Leadership Skills</div><div class="sec-line"></div></div>
+        <div class="entry">
+          <div class="entry-title">Organizers in many data conferences (Pydata & Datalift @Berlin) and events </div>
+          <div class="entry-desc">Skilled in adhoc situation with 100+ audiences</div>
+          <div class="tags"><span class="tag">NLP</span><span class="tag">spaCy</span><span class="tag">HuggingFace</span><span class="tag">Open Source</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="s-gap">
+        <div class="s-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-deg">2018, Postdoc. Neuroscience</div>
+          <div class="edu-school">Caltech, , USA</div>
+          <!-- <div class="edu-year">2018</div> -->
+        </div>            
+        <div class="edu-item">
+          <div class="edu-deg">2017, PhD. Neuroscience</div>
+          <div class="edu-school">Max Planck Institute, Tuebingen, Germany</div>
+          <!-- <div class="edu-year">2017</div> -->
+        </div>        
+        <div class="edu-item">
+          <div class="edu-deg">2010, MS. Neuroscience</div>
+          <div class="edu-school">Max Planck Institute, Tuebingen, Germany</div>
+          <!-- <div class="edu-year">2010</div> -->
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">2007, BS. Physics, Biology</div>
+          <div class="edu-school">Sogang University, Seoul, Korea</div>
+          <!-- <div class="edu-year">2007</div> -->
+        </div>
+      </div>
+
+      <div class="s-gap">
+        <div class="s-label">Technical Skills</div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Python / SQL</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Data Visualization (Tableau)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">DBT</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:80%"></div></div>
+        </div>        
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Machine Learning</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Airflow/Docker</span><span class="skill-pct">50%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:50%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">AI (RAG, API)</span><span class="skill-pct">50%</span></div>
+          <div class="skill-track"><div class="skill-fill-ds" style="width:50%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-gap">
+        <div class="s-label">Language Skills</div>
+          <div class="cert-item">
+            <div class="cert-name">🇰🇷 Korean</div>
+            <div class="cert-meta">Native</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">🇺🇸 English</div>
+            <div class="cert-meta">Fluent (C1)</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">🇩🇪 German</div>
+            <div class="cert-meta">Good Conversational (B2)</div>
+          </div>      
+      <!-- <div class="s-gap"> -->
+        <!-- <div class="s-label">Leadership Skills</div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Leadship skills in Data Conference</span><span class="skill-pct">92%</span></div>
+          <div class="skill-track"><div class="skill-fill-li" style="width:92%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Technical Writing</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill-li" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Career changing skills</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill-li" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span class="skill-name-l">Personal Branding</span><span class="skill-pct">50%</span></div>
+          <div class="skill-track"><div class="skill-fill-li" style="width:50%"></div></div>
+        </div>
+      </div> -->
+
+      <div class="s-gap">
+        <div class="s-label">Social Platforms</div>
+        <a class="plat-card" href="https://www.linkedin.com/in/soyoung-kwon-9657226a/" target="_blank">
+          <div class="plat-icon" style="background:rgba(10,102,194,0.2);color:#7ab8f0">in</div>
+          <div><div class="plat-name">LinkedIn</div><div class="plat-handle">soyoung-kwon</div></div>
+          <div class="plat-num">70K impress</div>
+        </a>
+        <a class="plat-card" href="https://www.youtube.com/@soyoungtv1324" target="_blank">
+          <div class="plat-icon" style="background:rgba(204,0,0,0.15);color:#ff6060">&#9654;</div>
+          <div><div class="plat-name">YouTube</div><div class="plat-handle">So Young TV</div></div>
+          <div class="plat-num">7k views</div>
+        </a>       
+      </div>
+
+
+
